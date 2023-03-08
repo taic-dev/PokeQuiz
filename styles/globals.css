@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Famicom";
+  src: url("../src/public/fonts/Famicom.ttf") format("woff2");
+}
+
+body {
+  font-family: "Famicom";
+}
