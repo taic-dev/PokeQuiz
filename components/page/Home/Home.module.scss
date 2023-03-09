@@ -1,0 +1,17 @@
+.home {
+  &__title {
+    font-size: 100px;
+    font-family: "PocketMonk";
+    color: #edc32f;
+    -webkit-text-stroke: 5px #3660b1;
+    text-stroke: 5px #3660b1;
+    margin-bottom: 50px;
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0 30px;
+  }
+}
