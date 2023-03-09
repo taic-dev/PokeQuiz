@@ -1,7 +1,5 @@
+import Index from "@/components/page/Home/Home";
+
 export default function Home() {
-  return (
-    <div>
-      ポケQuiz
-    </div>
-  )
+  return <Index />
 }
