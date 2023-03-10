@@ -1,7 +1,7 @@
 import React,{ ReactNode } from "react";
 import Link from "next/link";
 import Button from "@mui/material/Button";
-import styls from "./HomeButton.module.scss";
+import styls from "./Button.module.scss";
 
 interface Props {
   link?: string
