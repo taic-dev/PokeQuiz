@@ -1,5 +1,6 @@
 import styles from "./Description.module.scss";
 import Button from "@/components/ui/Button/Button";
+import { Typography } from "@mui/material";
 
 export default class DescriptionType {
   levelType: string | null;
@@ -12,12 +13,17 @@ export default class DescriptionType {
     if (this.levelType === "beginner") {
       return (
         <>
-          <div className={styles.description__text}>
-            <p>
-              初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。
-            </p>
+          <Typography component="h1">▶︎ 初級者向け ポケモンクイズ</Typography>
+          <Typography component="h2">▶︎ ルール説明</Typography>
+          <p className={styles.description__text}>
+          初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。
+          </p>
+          <div className={styles.description__img}>
+            <img src="/#" alt="説明画像" />
           </div>
-          <Button link={`/${this.levelType}`}>ゲームスタート</Button>
+          <div className={styles.description__button}>
+            <Button link={`/${this.levelType}`}>ゲームスタート</Button>
+          </div>
         </>
       );
     }
@@ -26,9 +32,7 @@ export default class DescriptionType {
       return (
         <>
           <div className={styles.description__text}>
-            <p>
-              中級者むけ
-            </p>
+            <p>中級者むけ</p>
           </div>
           <Button link={`/${this.levelType}`}>ゲームスタート</Button>
         </>
@@ -39,19 +43,13 @@ export default class DescriptionType {
       return (
         <>
           <div className={styles.description__text}>
-            <p>
-              上級者むけ
-            </p>
+            <p>上級者むけ</p>
           </div>
           <Button link={`/${this.levelType}`}>ゲームスタート</Button>
         </>
       );
     }
 
-    return (
-      <>
-        存在しないページです。
-      </>
-    )
+    return <>存在しないページです。</>;
   }
 }

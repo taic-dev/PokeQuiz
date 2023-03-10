@@ -6,11 +6,11 @@ import styles from "./Description.module.scss";
 const Description = () => {
   const param = new URLSearchParams(location.search);
   const level = param.get("type");
-  const text = new DescriptionType(level);
+  const content = new DescriptionType(level);
 
   return (
     <Box className={styles.description__box}>
-      {text.levelTypeContent()}
+      {content.levelTypeContent()}
     </Box>
   )
 }
