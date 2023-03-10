@@ -1,4 +1,5 @@
 import styles from "./Description.module.scss";
+import Button from "@/components/ui/Button/Button";
 
 export default class DescriptionType {
   levelType: string | null;
@@ -7,30 +8,50 @@ export default class DescriptionType {
     this.levelType = levelType;
   }
 
-  levelTypeText() {
-    if(this.levelType === "beginner") {
+  levelTypeContent() {
+    if (this.levelType === "beginner") {
       return (
-        <div className={styles.description__text}>
-          <p>初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。</p>
-        </div>
+        <>
+          <div className={styles.description__text}>
+            <p>
+              初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。
+            </p>
+          </div>
+          <Button link={`/${this.levelType}`}>ゲームスタート</Button>
+        </>
       );
     }
 
-    if(this.levelType === "intermediate") {
+    if (this.levelType === "intermediate") {
       return (
-        <div className={styles.description__text}>
-          <p>中級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。</p>
-        </div>
-      )
+        <>
+          <div className={styles.description__text}>
+            <p>
+              中級者むけ
+            </p>
+          </div>
+          <Button link={`/${this.levelType}`}>ゲームスタート</Button>
+        </>
+      );
     }
 
-    if(this.levelType === "advanced") {
+    if (this.levelType === "advanced") {
       return (
-        <div className={styles.description__text}>
-          <p>上級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。初級者向けの説明を入れます。</p>
-        </div>
-      )
+        <>
+          <div className={styles.description__text}>
+            <p>
+              上級者むけ
+            </p>
+          </div>
+          <Button link={`/${this.levelType}`}>ゲームスタート</Button>
+        </>
+      );
     }
+
+    return (
+      <>
+        存在しないページです。
+      </>
+    )
   }
-
 }
