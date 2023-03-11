@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
+import getPokemonName from "@/api/getPokemonName";
 
 const Beginner = () => {
-  return (
-    <div>
-      ビギナー内
-    </div>
-  )
-}
 
-export default Beginner
+  const data = getPokemonName();
+
+  return <div>{ data }</div>;
+};
+
+export default Beginner;
