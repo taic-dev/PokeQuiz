@@ -9,7 +9,7 @@ const Description = () => {
   const content = new DescriptionType(level);
 
   return (
-    <Box className={styles.description__box}>
+    <Box className={styles.description__wrapper}>
       {content.levelTypeContent()}
     </Box>
   )

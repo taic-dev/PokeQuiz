@@ -1,3 +1,56 @@
 .beginner {
-  
+  &__wrapper {
+    margin: 10% 8% 0;
+
+    h1 {
+      font-size: 32px;
+      font-weight: bold;
+      font-family: "Famicom";
+      margin-bottom: 24px;
+    }
+  }
+
+  &__box {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 24px;
+  }
+
+  &__left {
+    width: 50%;
+    margin-left: 55px;
+  }
+
+  &__name {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  &__detail {
+    > * {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__button {
+    text-align: center;
+  }
+
+  &__right {
+    width: 50%;
+  }
+
+  &__img {
+    width: 200px;
+    margin: auto;
+    padding: 5%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+
+    img {
+      width: 100%;
+    }
+  }
+
+
 }

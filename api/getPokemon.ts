@@ -1,10 +1,20 @@
 import useFetch from "@/hooks/useFetch";
 
 export default class getPokemon {
-  i: number | null;
+  i: number;
 
-  constructor(i: number | null) {
+  constructor() {
+    let min = 1;
+    let max = 1000;
+    const i: number = Math.floor(Math.random() * (max + 1 - min)) + min;
     this.i = i;
+  }
+
+  getPokemonImage() {
+    const url: string = `https://pokeapi.co/api/v2/pokemon/${this.i}/`;
+    const { data } = useFetch(url, {});
+
+    return  data?.data.sprites.front_default
   }
   
   getPokemonName() {
@@ -39,16 +49,9 @@ export default class getPokemon {
 
     const pokemonDesc: Desc = {
       genera: genera && genera.genus,
-      flavor: flavor && flavor.flavor_text
+      flavor: flavor && flavor.flavor_text.replace(/\s+/g, "")
     }
 
     return pokemonDesc;
-  }
-
-  getPokemonImage() {
-    const url: string = `https://pokeapi.co/api/v2/pokemon/${this.i}/`;
-    const { data } = useFetch(url, {});
-
-    return  data?.data.sprites.front_default
   }
 }
