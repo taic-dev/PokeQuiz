@@ -8,12 +8,16 @@ const Beginner = () => {
 
   const data = new getPokemon(i);
 
-console.log(data.getPokemonImage())
+  if(!data) return "Loading";
+
+  console.log(data.getPokemonDesc())
   return (
     <>
       <img src={data.getPokemonImage()} alt="" />
       <div>{ data.getPokemonName() }</div>
-      
+      <p>{data.getPokemonDesc().genera}</p>
+      <p>{data.getPokemonDesc().flavor}</p>
+
     </>
   )
 };

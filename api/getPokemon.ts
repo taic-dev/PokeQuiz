@@ -10,28 +10,45 @@ export default class getPokemon {
   getPokemonName() {
     const url: string = `https://pokeapi.co/api/v2/pokemon-species/${this.i}/`;
     const { data } = useFetch(url, {});
+    
+    if(!data) return "Loading";
   
     const jaData = data?.data.names.find(
       (v: { language: { name: string } }) => v.language.name == "ja"
     );
   
-    if(!jaData) return "Loading";
-  
     return jaData.name;
   }
 
   getPokemonDesc() {
-    const url: string = `https://pokeapi.co/api/v2/pokemon/${this.i}/`;
+    interface Desc {
+      genera: string | undefined;
+      flavor: string | undefined;
+    }
+
+    const url: string = `https://pokeapi.co/api/v2/pokemon-species/${this.i}/`;
     const { data } = useFetch(url, {});
-    return  data?.data.sprites.front_default
+
+    const genera = data?.data.genera.find(
+      (v: { language: { name: string } }) => v.language.name == "ja"
+    );
+
+    const flavor = data?.data.flavor_text_entries.find(
+      (v: { language: { name: string } }) => v.language.name == "ja"
+    );
+
+    const pokemonDesc: Desc = {
+      genera: genera && genera.genus,
+      flavor: flavor && flavor.flavor_text
+    }
+
+    return pokemonDesc;
   }
 
   getPokemonImage() {
     const url: string = `https://pokeapi.co/api/v2/pokemon/${this.i}/`;
     const { data } = useFetch(url, {});
+
     return  data?.data.sprites.front_default
   }
-
-
-
 }
