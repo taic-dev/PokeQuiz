@@ -1,24 +1,18 @@
 import React,{ useState, useEffect } from "react";
 import { Button, TextField } from "@mui/material";
-import getPokemon from "@/api/getPokemon";
+import getPokemonBegginer from "@/api/getPokemonBegginer";
 import styles from "./Beginner.module.scss";
 
 const Beginner = () => {
-  const [data, setData] = useState(new getPokemon())
-  const [next, setNext] = useState("");
-  const [test, setTest] = useState(data.getPokemonName());
-
-  useEffect(() => {
-    setData(new getPokemon());
-    console.log(test);
-  },[])
-
-  if (!data) return "Loading";
-
+  const array = getPokemonBegginer();
+  const [num, setNum] = useState(0);
+  
   const nextButtonClick = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    setNum(num + 1);
   }
+
+  if(!array) "Loading";
 
   return (
     <>
@@ -30,15 +24,15 @@ const Beginner = () => {
               <TextField className={styles.beginner__name} label="なまえ" variant="standard" />
               <div className={styles.beginner__detail}>
                 <h2>▶︎ ヒント</h2>
-                <p className={styles.beginner__name}>答えは <span>{data.getPokemonName().length}</span> 文字</p>
-                <p>{data.getPokemonDesc().genera}</p>
-                <p>{data.getPokemonDesc().flavor}</p>
+                <p className={styles.beginner__name}>答えは {array[0].desc[num].name} 文字</p>
+                <p>{array[0].desc[num].genera}</p>
+                <p>{array[0].desc[num].flavor}</p>
               </div>
             </div>
           </div>
           <div className={styles.beginner__right}>
             <div className={styles.beginner__img}>
-              <img src={data.getPokemonImage()} alt="" />
+              <img src={array[0].desc[num].img} alt="" />
             </div>
           </div>
         </div>

@@ -15,7 +15,7 @@ const useFetch = (url: string, config: AxiosRequestConfig) => {
     }
   }),[])
 
-  return { response }
+  return response
 }
 
 export default useFetch
