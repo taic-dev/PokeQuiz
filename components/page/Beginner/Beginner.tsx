@@ -1,47 +1,56 @@
-import React,{ useState, useEffect } from "react";
+import React,{ useState } from "react";
 import { Button, TextField } from "@mui/material";
 import getPokemonBegginer from "@/api/getPokemonBegginer";
 import styles from "./Beginner.module.scss";
 
 const Beginner = () => {
-  const array = getPokemonBegginer();
-  const [num, setNum] = useState(0);
+  const questionArray = getPokemonBegginer();
+  const [num, setNum] = useState<number>(0);
+  const [answer ,setAnswer] = useState<string>("");
+  const [answerArray, setAnswerArray] = useState<string[]>([]);
+
+  const answerBoxChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setAnswer(e.target.value);
+  }
   
   const nextButtonClick = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setAnswerArray([answer, ...answerArray])
     setNum(num + 1);
+    setAnswer("");
   }
 
-  console.log(array);
+  console.log(answerArray);
+  console.log(questionArray);
 
-  if(!array) "Loading";
+  if(!questionArray) "Loading";
 
   return (
     <>
-      <div className={styles.beginner__wrapper}>
+      <form action="#" onSubmit={(e)=>nextButtonClick(e)} className={styles.beginner__wrapper}>
         <h1>▶︎ このポケモンのなまえは？</h1>
         <div className={styles.beginner__box}>
           <div className={styles.beginner__left}>
             <div className={styles.beginner__desc}>
-              <TextField className={styles.beginner__name} label="なまえ" variant="standard" />
+              <TextField onChange={(e)=>answerBoxChange(e)} value={answer} className={styles.beginner__name} label="なまえ" variant="standard" />
               <div className={styles.beginner__detail}>
                 <h2>▶︎ ヒント</h2>
-                <p className={styles.beginner__name}>答えは <span>{array[0].desc[num].length}</span> 文字</p>
-                <p>{array[0].desc[num].genera}</p>
-                <p>{array[0].desc[num].flavor}</p>
+                <p className={styles.beginner__name}>答えは <span>{questionArray[0].desc[num].length}</span> 文字</p>
+                <p>{questionArray[0].desc[num].genera}</p>
+                <p>{questionArray[0].desc[num].flavor}</p>
               </div>
             </div>
           </div>
           <div className={styles.beginner__right}>
             <div className={styles.beginner__img}>
-              <img src={array[0].desc[num].img} alt="" />
+              <img src={questionArray[0].desc[num].img} alt="" />
             </div>
           </div>
         </div>
-        <form action="#" onSubmit={(e)=>nextButtonClick(e)} className={styles.beginner__form}>
-          <input type="submit" value="つぎへ" />
-        </form>
-      </div>
+        <div className={styles.beginner__button}>
+          <Button type="submit" variant="contained">つぎへ</Button>
+        </div>
+      </form>
     </>
   );
 };
