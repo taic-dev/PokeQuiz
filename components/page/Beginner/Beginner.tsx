@@ -12,6 +12,8 @@ const Beginner = () => {
     setNum(num + 1);
   }
 
+  console.log(array);
+
   if(!array) "Loading";
 
   return (
@@ -24,7 +26,7 @@ const Beginner = () => {
               <TextField className={styles.beginner__name} label="なまえ" variant="standard" />
               <div className={styles.beginner__detail}>
                 <h2>▶︎ ヒント</h2>
-                <p className={styles.beginner__name}>答えは {array[0].desc[num].name} 文字</p>
+                <p className={styles.beginner__name}>答えは <span>{array[0].desc[num].length}</span> 文字</p>
                 <p>{array[0].desc[num].genera}</p>
                 <p>{array[0].desc[num].flavor}</p>
               </div>

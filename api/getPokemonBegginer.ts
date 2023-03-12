@@ -2,15 +2,20 @@ import useFetch from "@/hooks/useFetch";
 import randomNum from "@/util/randomNum";
 
 const getPokemonBegginer = () => {
+  interface Answer {
+    name: string | undefined
+  }
+
   interface Desc {
-    name: string | undefined;
+    length: number | undefined;
     genera: string | undefined;
     flavor: string | undefined;
     img: string | undefined;
   }
 
   let array: any = [
-    { desc:[] }
+    { desc:[] },
+    { answer: [] }
   ]
 
   for(let num=0; num<10; num++) {
@@ -35,13 +40,18 @@ const getPokemonBegginer = () => {
     );
 
     const pokemonDesc: Desc = {
-      name: names && names.name,
+      length: names && names.name.length,
       genera: genera && genera.genus,
       flavor: flavor && flavor.flavor_text.replace(/\s+/g, ""),
       img: image && image
     }
 
+    const pokemonAnswer: Answer = {
+      name: names && names.name,
+    }
+
     array[0].desc.push(pokemonDesc);
+    array[1].answer.push(pokemonAnswer);
   }
 
   return array;
