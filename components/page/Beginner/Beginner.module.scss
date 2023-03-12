@@ -1,6 +1,6 @@
 .beginner {
   &__wrapper {
-    margin: 10% 8% 0;
+    margin: 10% 10% 0;
 
     h1 {
       font-size: 32px;
@@ -12,6 +12,7 @@
 
   &__box {
     display: flex;
+    align-items: center;
     gap: 50px;
     margin-bottom: 24px;
   }
@@ -22,17 +23,34 @@
   }
 
   &__name {
-    font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 32px;
+    font-family: "Famicom";
+    width: 80%;
+
+    input {
+      font-size: 24px;
+    }
+
+    span {
+      font-size: 24px;
+    }
   }
 
   &__detail {
     > * {
       margin-bottom: 20px;
     }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    p {
+      margin-left: 30px;
+    }
   }
 
-  &__button {
+  &__form {
     text-align: center;
   }
 

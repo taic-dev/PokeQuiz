@@ -12,18 +12,18 @@ export default class getPokemon {
 
   getPokemonImage() {
     const url: string = `https://pokeapi.co/api/v2/pokemon/${this.i}/`;
-    const { data } = useFetch(url, {});
+    const { response } = useFetch(url, {});
 
-    return  data?.data.sprites.front_default
+    return  response?.data.sprites.front_default
   }
   
   getPokemonName() {
     const url: string = `https://pokeapi.co/api/v2/pokemon-species/${this.i}/`;
-    const { data } = useFetch(url, {});
+    const { response } = useFetch(url, {});
     
-    if(!data) return "Loading";
+    if(!response) return "Loading";
   
-    const jaData = data?.data.names.find(
+    const jaData = response?.data.names.find(
       (v: { language: { name: string } }) => v.language.name == "ja"
     );
   
@@ -37,13 +37,13 @@ export default class getPokemon {
     }
 
     const url: string = `https://pokeapi.co/api/v2/pokemon-species/${this.i}/`;
-    const { data } = useFetch(url, {});
+    const { response } = useFetch(url, {});
 
-    const genera = data?.data.genera.find(
+    const genera = response?.data.genera.find(
       (v: { language: { name: string } }) => v.language.name == "ja"
     );
 
-    const flavor = data?.data.flavor_text_entries.find(
+    const flavor = response?.data.flavor_text_entries.find(
       (v: { language: { name: string } }) => v.language.name == "ja"
     );
 
