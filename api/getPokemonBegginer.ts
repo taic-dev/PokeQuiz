@@ -18,7 +18,7 @@ const getPokemonBegginer = () => {
     { answer: [] }
   ]
 
-  for(let num=0; num<=10; num++) {
+  for(let num=0; num<10; num++) {
     let i = randomNum();
     let url: string = `https://pokeapi.co/api/v2/pokemon/${i}/`;
     let response = useFetch(url, {});

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, TextField } from "@mui/material";
-import getPokemonBegginer from "@/api/getPokemonBegginer";
 import styles from "./Beginner.module.scss";
 
 interface BeginnerProps {
@@ -10,6 +9,7 @@ interface BeginnerProps {
   setAnswer: React.Dispatch<React.SetStateAction<string>>;
   answerArray: string[];
   setAnswerArray: React.Dispatch<React.SetStateAction<string[]>>;
+  questionArray: [];
 }
 
 const BeginnerQuestion = ({
@@ -19,8 +19,10 @@ const BeginnerQuestion = ({
   setAnswer,
   answerArray,
   setAnswerArray,
+  questionArray,
 }: BeginnerProps) => {
-  const questionArray = getPokemonBegginer();
+
+  console.log(questionArray);
 
   const answerBoxChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,13 +32,10 @@ const BeginnerQuestion = ({
 
   const nextButtonClick = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setAnswerArray([answer, ...answerArray]);
+    setAnswerArray([...answerArray, answer]);
     setNum(num + 1);
     setAnswer("");
   };
-
-  console.log(answerArray);
-  console.log(questionArray);
 
   return (
     <form
@@ -45,7 +44,7 @@ const BeginnerQuestion = ({
       className={styles.beginner__wrapper}
     >
       <h1>▶︎ このポケモンのなまえは？</h1>
-      <div className={styles.beginner__count}><span>{num}/10</span></div>
+      <div className={styles.beginner__count}><span>{num + 1}/10</span></div>
       <div className={styles.beginner__box}>
         <div className={styles.beginner__left}>
           <div className={styles.beginner__desc}>
@@ -74,7 +73,7 @@ const BeginnerQuestion = ({
       </div>
       <div className={styles.beginner__button}>
         <Button type="submit" variant="contained">
-          {num < 10 ? "つぎへ" : "答え合わせ"}
+          {num < 9 ? "つぎへ" : "答え合わせ"}
         </Button>
       </div>
     </form>
