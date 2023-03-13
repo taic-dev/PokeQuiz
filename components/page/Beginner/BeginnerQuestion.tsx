@@ -45,6 +45,7 @@ const BeginnerQuestion = ({
       className={styles.beginner__wrapper}
     >
       <h1>▶︎ このポケモンのなまえは？</h1>
+      <div className={styles.beginner__count}><span>{num}/10</span></div>
       <div className={styles.beginner__box}>
         <div className={styles.beginner__left}>
           <div className={styles.beginner__desc}>
@@ -73,7 +74,7 @@ const BeginnerQuestion = ({
       </div>
       <div className={styles.beginner__button}>
         <Button type="submit" variant="contained">
-          つぎへ
+          {num < 10 ? "つぎへ" : "答え合わせ"}
         </Button>
       </div>
     </form>

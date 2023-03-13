@@ -3,7 +3,7 @@ import BeginnerQuestion from "./BeginnerQuestion";
 import BeginnerAnswer from "./BeginnerAnswer";
 
 const Beginner = () => {
-  const [num, setNum] = useState<number>(0);
+  const [num, setNum] = useState<number>(1);
   const [answer, setAnswer] = useState<string>("");
   const [answerArray, setAnswerArray] = useState<string[]>([]);
 
@@ -18,7 +18,7 @@ const Beginner = () => {
         setAnswerArray={setAnswerArray}
        />
     ) : (
-      <BeginnerAnswer />
+      <BeginnerAnswer answerArray={answerArray} />
     )
   );
 };
