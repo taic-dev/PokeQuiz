@@ -89,5 +89,23 @@
     }
   }
 
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  &__item {
+    width: calc(20% - 20px);
+    padding: 3%;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+
+    img {
+      width: 100%;
+    }
+  }
+
 
 }
