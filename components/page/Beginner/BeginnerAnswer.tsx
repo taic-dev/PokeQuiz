@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from "@/components/ui/Button/Button";
 import styles from "./Beginner.module.scss";
 
 interface BeginnerProps {
@@ -23,12 +24,22 @@ const BeginnerAnswer = ({ answerArray, questionArray }: BeginnerProps) => {
       <ul className={styles.beginner__list}>
         {questionArray[0].desc.map((v: Desc,i: React.Key | number)=>(
           <li className={styles.beginner__item} key={i}>
-            {/* {console.log(v.img)} */}
-            <img src={v.img} alt="回答画像" />
-            <p></p>
+            <div className={styles.beginner__desc}>
+              <span>{answerArray[i] === questionArray[1].answer[i].name ? "○" : "×"}</span>
+              <img src={v.img} alt="回答画像" />            
+            </div>
+            <div className={styles.beginner__diff}>
+              <p>▶︎{answerArray[i]}</p>
+              <p>答え：{questionArray[1].answer[i].name}</p>
+            </div>
           </li>
         ))}
       </ul>
+      <div className={styles.beginner__button}>
+        <Button link='/'>
+          TOPへ
+        </Button>
+      </div>
     </div>
   )
 }

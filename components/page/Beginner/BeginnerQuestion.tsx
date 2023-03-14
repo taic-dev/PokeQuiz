@@ -47,22 +47,20 @@ const BeginnerQuestion = ({
       <div className={styles.beginner__count}><span>{num + 1}/10</span></div>
       <div className={styles.beginner__box}>
         <div className={styles.beginner__left}>
-          <div className={styles.beginner__desc}>
-            <TextField
-              onChange={(e) => answerBoxChange(e)}
-              value={answer}
-              className={styles.beginner__name}
-              label="なまえ"
-              variant="standard"
-            />
-            <div className={styles.beginner__detail}>
-              <h2>▶︎ ヒント</h2>
-              <p className={styles.beginner__name}>
-                答えは <span>{questionArray[0].desc[num].length}</span> 文字
-              </p>
-              <p>{questionArray[0].desc[num].genera}</p>
-              <p>{questionArray[0].desc[num].flavor}</p>
-            </div>
+          <TextField
+            onChange={(e) => answerBoxChange(e)}
+            value={answer}
+            className={styles.beginner__name}
+            label="なまえ"
+            variant="standard"
+          />
+          <div className={styles.beginner__detail}>
+            <h2>▶︎ ヒント</h2>
+            <p className={styles.beginner__name}>
+              答えは <span>{questionArray[0].desc[num].length}</span> 文字
+            </p>
+            <p>{questionArray[0].desc[num].genera}</p>
+            <p>{questionArray[0].desc[num].flavor}</p>
           </div>
         </div>
         <div className={styles.beginner__right}>
