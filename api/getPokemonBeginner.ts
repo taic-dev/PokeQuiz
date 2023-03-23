@@ -13,10 +13,17 @@ const getPokemonBegginer = () => {
     img: string | undefined;
   }
 
-  let array: any = [
+  interface Array {
+    desc?: [] | undefined;
+    answer?: [] | undefined;
+  }
+
+  let array: Array[] = [
     { desc:[] },
     { answer: [] }
   ]
+
+  if(!array[0].desc || !array[1].answer) return;
 
   for(let num=0; num<10; num++) {
     let i = randomNum();

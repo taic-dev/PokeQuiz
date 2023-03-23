@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import BeginnerQuestion from "./BeginnerQuestion";
 import BeginnerAnswer from "./BeginnerAnswer";
-import getPokemonBegginer from "@/api/getPokemonBegginer";
+import getPokemonBeginner from "@/api/getPokemonBeginner";
 
 const Beginner = () => {
   const [num, setNum] = useState<number>(0);
   const [answer, setAnswer] = useState<string>("");
   const [answerArray, setAnswerArray] = useState<string[]>([]);
-  const questionArray: [] = getPokemonBegginer();
+  const questionArray: [] | undefined = getPokemonBeginner();
 
   return num < 10 ? (
     <BeginnerQuestion
@@ -20,7 +20,10 @@ const Beginner = () => {
       questionArray={questionArray}
     />
   ) : (
-    <BeginnerAnswer answerArray={answerArray} questionArray={questionArray} />
+    <BeginnerAnswer 
+      answerArray={answerArray}
+      questionArray={questionArray} 
+    />
   );
 };
 

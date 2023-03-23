@@ -9,7 +9,7 @@ interface BeginnerProps {
   setAnswer: React.Dispatch<React.SetStateAction<string>>;
   answerArray: string[];
   setAnswerArray: React.Dispatch<React.SetStateAction<string[]>>;
-  questionArray: [];
+  questionArray: [] | undefined;
 }
 
 const BeginnerQuestion = ({
@@ -53,6 +53,7 @@ const BeginnerQuestion = ({
             className={styles.beginner__name}
             label="なまえ"
             variant="standard"
+            inputProps={{ maxLength: questionArray[0].desc[num].length }}
           />
           <div className={styles.beginner__detail}>
             <h2>▶︎ ヒント</h2>
