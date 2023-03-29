@@ -42,8 +42,6 @@ const BeginnerQuestion = ({
     setAnswer("");
   };
 
-  if(questionArray === undefined) return <>読み込み中...</>
-
   return (
     <form
       action="#"
