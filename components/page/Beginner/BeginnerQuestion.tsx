@@ -2,6 +2,11 @@ import React from "react";
 import { Button, TextField } from "@mui/material";
 import styles from "./Beginner.module.scss";
 
+interface PokemonObj {
+  desc?: Array<any> | undefined;
+  answer?: Array<any> | undefined;
+}
+
 interface BeginnerProps {
   num: number;
   setNum: React.Dispatch<React.SetStateAction<number>>;
@@ -9,7 +14,7 @@ interface BeginnerProps {
   setAnswer: React.Dispatch<React.SetStateAction<string>>;
   answerArray: string[];
   setAnswerArray: React.Dispatch<React.SetStateAction<string[]>>;
-  questionArray: [] | undefined;
+  questionArray: Array<PokemonObj> | undefined;
 }
 
 const BeginnerQuestion = ({
@@ -53,15 +58,15 @@ const BeginnerQuestion = ({
             className={styles.beginner__name}
             label="なまえ"
             variant="standard"
-            inputProps={{ maxLength: questionArray[0].desc[num].length }}
+            inputProps={{ maxLength: questionArray[0]?.desc[num]?.length }}
           />
           <div className={styles.beginner__detail}>
             <h2>▶︎ ヒント</h2>
             <p className={styles.beginner__name}>
-              答えは <span>{questionArray[0].desc[num].length}</span> 文字
+              答えは <span>{questionArray[0]?.desc[num]?.length}</span> 文字
             </p>
-            <p>{questionArray[0].desc[num].genera}</p>
-            <p>{questionArray[0].desc[num].flavor}</p>
+            <p>{questionArray[0]?.desc[num]?.genera}</p>
+            <p>{questionArray[0]?.desc[num]?.flavor}</p>
           </div>
         </div>
         <div className={styles.beginner__right}>
