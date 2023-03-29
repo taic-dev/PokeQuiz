@@ -2,6 +2,11 @@ import React from "react";
 import { Button, TextField } from "@mui/material";
 import styles from "./Beginner.module.scss";
 
+interface PokemonObj {
+  desc?: [] | undefined;
+  answer?: [] | undefined;
+}
+
 interface BeginnerProps {
   num: number;
   setNum: React.Dispatch<React.SetStateAction<number>>;
@@ -9,7 +14,7 @@ interface BeginnerProps {
   setAnswer: React.Dispatch<React.SetStateAction<string>>;
   answerArray: string[];
   setAnswerArray: React.Dispatch<React.SetStateAction<string[]>>;
-  questionArray: [] | undefined;
+  questionArray: Array<PokemonObj> | undefined;
 }
 
 const BeginnerQuestion = ({

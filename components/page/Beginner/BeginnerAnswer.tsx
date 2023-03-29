@@ -2,9 +2,14 @@ import React from 'react'
 import Button from "@/components/ui/Button/Button";
 import styles from "./Beginner.module.scss";
 
+interface PokemonObj {
+  desc?: [] | undefined;
+  answer?: [] | undefined;
+}
+
 interface BeginnerProps {
   answerArray: string[];
-  questionArray?: [];
+  questionArray?: Array<PokemonObj> | undefined;
 }
 
 interface Desc {
@@ -15,10 +20,6 @@ interface Desc {
 }
 
 const BeginnerAnswer = ({ answerArray, questionArray }: BeginnerProps) => {
-  console.log(questionArray);
-  console.log(answerArray);
-
-  if(!questionArray) return;
 
   return (
     <div className={styles.beginner__wrapper}>
