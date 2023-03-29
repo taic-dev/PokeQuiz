@@ -14,11 +14,11 @@ const getPokemonBegginer = () => {
   }
 
   interface PokemonObj {
-    desc?: [] | undefined;
-    answer?: [] | undefined;
+    desc?: Array<any> | undefined;
+    answer?: Array<any> | undefined;
   }
 
-  let array: PokemonObj[] = [
+  let array: Array<PokemonObj> = [
     { desc:[] },
     { answer: [] }
   ]
