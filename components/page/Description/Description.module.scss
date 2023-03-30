@@ -17,19 +17,36 @@
     }
   }
 
+  &__desc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
   &__text {
+    width: 35%;
     margin-bottom: 24px;
+
+    p {
+      margin-bottom: 20px;
+      line-height: 2;
+    }
+    
+    li {
+      margin-bottom: 10px;
+    }
   }
 
   &__img {
-    width: 100%;
+    width: 65%;
     border-radius: 10px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 
     img{
       width: 100%;
       object-fit: contain;
       border-radius: 10px;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     }
   }
 
