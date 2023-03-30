@@ -4,8 +4,25 @@ import DescriptionQuizRange from "./DescriptionQuizRange";
 import Button from "@/components/ui/Button/Button";
 import { Typography } from "@mui/material";
 
+interface rangeType {
+  generation: number;
+  checked: boolean;
+}
+
 const DescriptionName = () => {
-  const [range, setRange] = useState("");
+  const [range, setRange] = useState<rangeType[]>([
+    { generation: 1, checked: true },
+    { generation: 2, checked: true },
+    { generation: 3, checked: true },
+    { generation: 4, checked: true },
+    { generation: 5, checked: true },
+    { generation: 6, checked: true },
+    { generation: 7, checked: true },
+    { generation: 8, checked: true },
+    { generation: 9, checked: true },
+  ]);
+
+  console.log(range)
 
   return (
     <>
@@ -23,7 +40,7 @@ const DescriptionName = () => {
             <li>・「次へ」のボタンをクリックすると次の問題へ</li>
           </ul>
           <p>※ 回答の文字数は入力に制限があります。</p>
-          <DescriptionQuizRange />
+          <DescriptionQuizRange range={range} setRange={setRange} />
           <div className={styles.description__button}>
             <Button link={`/quiz-name`}>ゲームスタート</Button>
           </div>
