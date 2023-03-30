@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Box } from "@mui/material";
-import DescriptionBeginner from './DescriptionBeginner';
+import DescriptionName from './DescriptionName';
 // import DescriptionType from './DescriotionType';
 import styles from "./Description.module.scss";
 
@@ -11,7 +11,7 @@ const Description = () => {
 
   return (
     <Box className={styles.description__wrapper}>
-      <DescriptionBeginner/>
+      <DescriptionName/>
     </Box>
   )
 }

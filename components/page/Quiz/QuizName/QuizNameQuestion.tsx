@@ -1,13 +1,13 @@
 import React from "react";
 import { Button, TextField } from "@mui/material";
-import styles from "./Beginner.module.scss";
+import styles from "./QuizName.module.scss";
 
 interface PokemonObj {
   desc?: Array<any> | undefined;
   answer?: Array<any> | undefined;
 }
 
-interface BeginnerProps {
+interface QuizNameProps {
   num: number;
   setNum: React.Dispatch<React.SetStateAction<number>>;
   answer: string;
@@ -17,7 +17,7 @@ interface BeginnerProps {
   questionArray: Array<PokemonObj> | undefined;
 }
 
-const BeginnerQuestion = ({
+const QuizNameQuestion = ({
   num,
   setNum,
   answer,
@@ -25,7 +25,7 @@ const BeginnerQuestion = ({
   answerArray,
   setAnswerArray,
   questionArray,
-}: BeginnerProps) => {
+}: QuizNameProps) => {
 
   console.log(questionArray);
 
@@ -46,36 +46,36 @@ const BeginnerQuestion = ({
     <form
       action="#"
       onSubmit={(e) => nextButtonClick(e)}
-      className={styles.beginner__wrapper}
+      className={styles["quiz-name__wrapper"]}
     >
       <h1>▶︎ このポケモンのなまえは？</h1>
-      <div className={styles.beginner__count}><span>{num + 1}/10</span></div>
-      <div className={styles.beginner__box}>
-        <div className={styles.beginner__left}>
+      <div className={styles["quiz-name__count"]}><span>{num + 1}/10</span></div>
+      <div className={styles["quiz-name__box"]}>
+        <div className={styles["quiz-name__left}"]}>
           <TextField
             onChange={(e) => answerBoxChange(e)}
             value={answer}
-            className={styles.beginner__name}
+            className={styles["quiz-name__name"]}
             label="なまえ"
             variant="standard"
             inputProps={{ maxLength: questionArray[0]?.desc[num]?.length }}
           />
-          <div className={styles.beginner__detail}>
+          <div className={styles["quiz-name__detail"]}>
             <h2>▶︎ ヒント</h2>
-            <p className={styles.beginner__name}>
+            <p className={styles["quiz-name__name"]}>
               答えは <span>{questionArray[0]?.desc[num]?.length}</span> 文字
             </p>
             <p>{questionArray[0]?.desc[num]?.genera}</p>
             <p>{questionArray[0]?.desc[num]?.flavor}</p>
           </div>
         </div>
-        <div className={styles.beginner__right}>
-          <div className={styles.beginner__img}>
+        <div className={styles["quiz-name__right"]}>
+          <div className={styles["quiz-name__img"]}>
             <img src={questionArray[0].desc[num].img} alt="" />
           </div>
         </div>
       </div>
-      <div className={styles.beginner__button}>
+      <div className={styles["quiz-name__button"]}>
         <Button type="submit" variant="contained">
           {num < 9 ? "つぎへ" : "答え合わせ"}
         </Button>
@@ -84,4 +84,4 @@ const BeginnerQuestion = ({
   );
 };
 
-export default BeginnerQuestion;
+export default QuizNameQuestion;

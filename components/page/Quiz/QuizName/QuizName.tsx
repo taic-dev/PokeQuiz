@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import BeginnerQuestion from "./BeginnerQuestion";
-import BeginnerAnswer from "./BeginnerAnswer";
+import QuizNameQuestion from "./QuizNameQuestion";
+import QuizNameAnswer from "./QuizNameAnswer";
 import getPokemonBeginner from "@/api/getPokemonBeginner";
 
 interface PokemonObj {
@@ -8,16 +8,14 @@ interface PokemonObj {
   answer?: Array<any> | undefined;
 }
 
-const Beginner = () => {
+const QuizName = () => {
   const [num, setNum] = useState<number>(0);
   const [answer, setAnswer] = useState<string>("");
   const [answerArray, setAnswerArray] = useState<string[]>([]);
   const questionArray: Array<PokemonObj> | undefined = getPokemonBeginner();
 
-  if(questionArray === undefined) return "読み込み中..."
-
   return num < 10 ? (
-    <BeginnerQuestion
+    <QuizNameQuestion
       num={num}
       setNum={setNum}
       answer={answer}
@@ -27,11 +25,11 @@ const Beginner = () => {
       questionArray={questionArray || undefined}
     />
   ) : (
-    <BeginnerAnswer 
+    <QuizNameAnswer 
       answerArray={answerArray}
       questionArray={questionArray} 
     />
   );
 };
 
-export default Beginner;
+export default QuizName;

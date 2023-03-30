@@ -11,9 +11,9 @@ const Home = () => {
         <Box className={styles.home}>
           <Typography className={styles.home__title}>PokeQuiz</Typography>
           <Box className={styles.home__box}>
-            <Button link="/description">初級者向けクイズ</Button>
-            <Button link="/description">中級者向けクイズ</Button>
-            <Button link="/description">上級者向けクイズ</Button>
+            <Button link="/description-name">なまえのクイズ</Button>
+            <Button link="/description">タイプのクイズ</Button>
+            <Button link="/description">しんかのクイズ</Button>
           </Box>
         </Box>
       </HomeSlider>
