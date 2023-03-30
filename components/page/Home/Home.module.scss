@@ -4,6 +4,11 @@
   left: 50%;
   transform: translate(-50%,-50%);
   z-index: 15;
+
+  padding: 50px;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 1px 1px 5px rgb(0 0 0 / 20%);
   
   &__title {
     font-size: 100px;
@@ -27,7 +32,12 @@
     &-container {
       width: 20%;
       height: 100vh;
-      text-align: center;
+    }
+
+    &-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

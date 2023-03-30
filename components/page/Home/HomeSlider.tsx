@@ -52,7 +52,7 @@ const HomeSlider: FC<Props> = ({ children }) => {
         >
           {Images.map((image: string) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide className={styles["home__swiper-slide"]}>
                 <img src={image} alt="ポケモン画像" />
               </SwiperSlide>
             );
@@ -70,7 +70,7 @@ const HomeSlider: FC<Props> = ({ children }) => {
         >
           {Images.map((image: string) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide className={styles["home__swiper-slide"]}>
                 <img src={image} alt="ポケモン画像" />
               </SwiperSlide>
             );
@@ -89,7 +89,7 @@ const HomeSlider: FC<Props> = ({ children }) => {
         >
           {Images.map((image: string) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide className={styles["home__swiper-slide"]}>
                 <img src={image} alt="ポケモン画像" />
               </SwiperSlide>
             );
@@ -107,7 +107,26 @@ const HomeSlider: FC<Props> = ({ children }) => {
         >
           {Images.map((image: string) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide className={styles["home__swiper-slide"]}>
+                <img src={image} alt="ポケモン画像" />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+        <Swiper
+          className={styles["home__swiper-container"]}
+          slidesPerView={5}
+          loop={true}
+          direction={"vertical"}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            reverseDirection: true,
+          }}
+        >
+          {Images.map((image: string) => {
+            return (
+              <SwiperSlide className={styles["home__swiper-slide"]}>
                 <img src={image} alt="ポケモン画像" />
               </SwiperSlide>
             );
