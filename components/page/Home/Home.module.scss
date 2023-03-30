@@ -27,7 +27,19 @@
   }
 
   &__swiper {
+    position: relative;
     display: flex;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100vh;
+      z-index: 10;
+      content: "";
+    }
     
     &-container {
       width: 20%;

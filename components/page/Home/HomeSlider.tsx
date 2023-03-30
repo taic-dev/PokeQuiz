@@ -32,9 +32,9 @@ const HomeSlider: FC<Props> = ({ children }) => {
             reverseDirection: true,
           }}
         >
-          {imagesArray1.map((image: string) => {
+          {imagesArray1.map((image: string, index: number) => {
             return (
-              <SwiperSlide className={styles["home__swiper-slide"]}>
+              <SwiperSlide key={index} className={styles["home__swiper-slide"]}>
                 <img src={image} alt="ポケモン画像" />
               </SwiperSlide>
             );
@@ -50,46 +50,9 @@ const HomeSlider: FC<Props> = ({ children }) => {
             disableOnInteraction: false,
           }}
         >
-          {imagesArray2.map((image: string) => {
+          {imagesArray2.map((image: string, index: number) => {
             return (
-              <SwiperSlide className={styles["home__swiper-slide"]}>
-                <img src={image} alt="ポケモン画像" />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-        <Swiper
-          className={styles["home__swiper-container"]}
-          slidesPerView={5}
-          loop={true}
-          direction={"vertical"}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-            reverseDirection: true,
-          }}
-        >
-          {imagesArray3.map((image: string) => {
-            return (
-              <SwiperSlide className={styles["home__swiper-slide"]}>
-                <img src={image} alt="ポケモン画像" />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-        <Swiper
-          className={styles["home__swiper-container"]}
-          slidesPerView={5}
-          loop={true}
-          direction={"vertical"}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-        >
-          {imagesArray4.map((image: string) => {
-            return (
-              <SwiperSlide className={styles["home__swiper-slide"]}>
+              <SwiperSlide key={index} className={styles["home__swiper-slide"]}>
                 <img src={image} alt="ポケモン画像" />
               </SwiperSlide>
             );
@@ -106,9 +69,46 @@ const HomeSlider: FC<Props> = ({ children }) => {
             reverseDirection: true,
           }}
         >
-          {imagesArray5.map((image: string) => {
+          {imagesArray3.map((image: string, index: number) => {
             return (
-              <SwiperSlide className={styles["home__swiper-slide"]}>
+              <SwiperSlide key={index} className={styles["home__swiper-slide"]}>
+                <img src={image} alt="ポケモン画像" />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+        <Swiper
+          className={styles["home__swiper-container"]}
+          slidesPerView={5}
+          loop={true}
+          direction={"vertical"}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+        >
+          {imagesArray4.map((image: string, index: number) => {
+            return (
+              <SwiperSlide key={index} className={styles["home__swiper-slide"]}>
+                <img src={image} alt="ポケモン画像" />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+        <Swiper
+          className={styles["home__swiper-container"]}
+          slidesPerView={5}
+          loop={true}
+          direction={"vertical"}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            reverseDirection: true,
+          }}
+        >
+          {imagesArray5.map((image: string, index: number) => {
+            return (
+              <SwiperSlide key={index} className={styles["home__swiper-slide"]}>
                 <img src={image} alt="ポケモン画像" />
               </SwiperSlide>
             );
