@@ -1,5 +1,4 @@
 import React, { FC, ReactNode } from "react";
-import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 import styles from "./Home.module.scss";
@@ -9,28 +8,27 @@ interface Props {
 }
 
 const Images = [
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/123.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/123.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/156.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/187.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/198.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/145.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/441.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/31.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/51.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/61.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/71.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/199.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/190.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
-  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/1.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/2.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/3.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/4.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/123.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/133.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/123.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/156.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/187.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/198.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/145.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/441.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/31.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/12.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/51.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/61.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/71.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/199.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/190.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/12.gif",
+  "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/12.gif",
 ];
 
 const HomeSlider: FC<Props> = ({ children }) => {
