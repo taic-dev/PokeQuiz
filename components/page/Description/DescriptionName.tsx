@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Description.module.scss";
+import DescriptionQuizRange from "./DescriptionQuizRange";
 import Button from "@/components/ui/Button/Button";
 import { Typography } from "@mui/material";
 
-const DescriptionBeginner = () => {
+const DescriptionName = () => {
+  const [range, setRange] = useState("");
+
   return (
     <>
       <Typography component="h1">▶︎ ポケモンなまえクイズ</Typography>
@@ -20,6 +23,7 @@ const DescriptionBeginner = () => {
             <li>・「次へ」のボタンをクリックすると次の問題へ</li>
           </ul>
           <p>※ 回答の文字数は入力に制限があります。</p>
+          <DescriptionQuizRange />
           <div className={styles.description__button}>
             <Button link={`/quiz-name`}>ゲームスタート</Button>
           </div>
@@ -32,4 +36,4 @@ const DescriptionBeginner = () => {
   );
 };
 
-export default DescriptionBeginner;
+export default DescriptionName;
