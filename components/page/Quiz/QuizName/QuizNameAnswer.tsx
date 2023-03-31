@@ -1,13 +1,13 @@
 import React from 'react'
 import Button from "@/components/ui/Button/Button";
-import styles from "./Beginner.module.scss";
+import styles from "./QuizName.module.scss";
 
 interface PokemonObj {
   desc?: Array<any> | undefined;
   answer?: Array<any> | undefined;
 }
 
-interface BeginnerProps {
+interface QuizNameProps {
   answerArray: string[];
   questionArray?: Array<PokemonObj> | undefined;
 }
@@ -19,28 +19,26 @@ interface Desc {
   img: string | undefined;
 }
 
-const BeginnerAnswer = ({ answerArray, questionArray }: BeginnerProps) => {
-
-  if(questionArray === undefined) return <>読み込み中...</>
+const QuizNameAnswer = ({ answerArray, questionArray }: QuizNameProps) => {
 
   return (
-    <div className={styles.beginner__wrapper}>
+    <div className={styles["quiz-name__wrapper"]}>
       <h1>▶︎ けっかはっぴょう</h1>
-      <ul className={styles.beginner__list}>
-        {questionArray[0].desc?.map((v: Desc,i: React.Key | number)=>(
-          <li className={styles.beginner__item} key={i}>
-            <div className={styles.beginner__desc}>
+      <ul className={styles["quiz-name__list"]}>
+        {questionArray[0]?.desc?.map((v: Desc,i: React.Key | number)=>(
+          <li className={styles["quiz-name__item"]} key={i}>
+            <div className={styles["quiz-name__desc"]}>
               <span>{answerArray[i as keyof typeof i] === questionArray[1]?.answer[i]?.name ? "○" : "×"}</span>
               <img src={v.img} alt="回答画像" />            
             </div>
-            <div className={styles.beginner__diff}>
+            <div className={styles["quiz-name__diff"]}>
               <p>▶︎{answerArray[i as keyof typeof i]}</p>
               <p>答え：{questionArray[1]?.answer[i]?.name}</p>
             </div>
           </li>
         ))}
       </ul>
-      <div className={styles.beginner__button}>
+      <div className={styles["quiz-name__button"]}>
         <Button link='/'>
           TOPへ
         </Button>
@@ -49,4 +47,4 @@ const BeginnerAnswer = ({ answerArray, questionArray }: BeginnerProps) => {
   )
 }
 
-export default BeginnerAnswer
+export default QuizNameAnswer

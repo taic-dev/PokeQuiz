@@ -1,4 +1,4 @@
-.beginner {
+.quiz-name {
   &__wrapper {
     max-width: 900px;
     margin: 10% auto 0;
@@ -41,7 +41,6 @@
   }
 
   &__name {
-    margin-bottom: 32px;
     font-family: "Famicom";
     width: 80%;
 
@@ -55,6 +54,8 @@
   }
 
   &__detail {
+    margin-top: 32px;
+    
     > * {
       margin-bottom: 20px;
     }

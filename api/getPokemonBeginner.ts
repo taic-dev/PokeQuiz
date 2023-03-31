@@ -1,22 +1,30 @@
 import useFetch from "@/hooks/useFetch";
 import randomNum from "@/util/randomNum";
 
-const getPokemonBegginer = () => {
-  interface Answer {
-    name: string | undefined
-  }
+interface Answer {
+  name: string | undefined
+}
 
-  interface Desc {
-    length: number | undefined;
-    genera: string | undefined;
-    flavor: string | undefined;
-    img: string | undefined;
-  }
+interface Desc {
+  length: number | undefined;
+  genera: string | undefined;
+  flavor: string | undefined;
+  img: string | undefined;
+}
 
-  interface PokemonObj {
-    desc?: Array<any> | undefined;
-    answer?: Array<any> | undefined;
-  }
+interface PokemonObj {
+  desc?: Array<any> | undefined;
+  answer?: Array<any> | undefined;
+}
+
+interface rangeType {
+  generation: number;
+  min: number;
+  max: number;
+  checked: boolean;
+}
+
+const getPokemonBegginer = (rangeArray: rangeType[]) => {
 
   let array: Array<PokemonObj> = [
     { desc:[] },
@@ -26,7 +34,9 @@ const getPokemonBegginer = () => {
   if(!array[0].desc || !array[1].answer) return;
 
   for(let num=0; num<10; num++) {
-    let i = randomNum();
+    let randamNum = Math.floor(Math.random() * rangeArray.length)
+    let i = randomNum(rangeArray[randamNum].min, rangeArray[randamNum].max);
+    
     let url: string = `https://pokeapi.co/api/v2/pokemon/${i}/`;
     let response = useFetch(url, {});
     const image = response?.data.sprites.front_default;
