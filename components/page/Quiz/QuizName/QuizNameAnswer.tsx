@@ -25,7 +25,7 @@ const QuizNameAnswer = ({ answerArray, questionArray }: QuizNameProps) => {
     <div className={styles["quiz-name__wrapper"]}>
       <h1>▶︎ けっかはっぴょう</h1>
       <ul className={styles["quiz-name__list"]}>
-        {questionArray[0].desc?.map((v: Desc,i: React.Key | number)=>(
+        {questionArray[0]?.desc?.map((v: Desc,i: React.Key | number)=>(
           <li className={styles["quiz-name__item"]} key={i}>
             <div className={styles["quiz-name__desc"]}>
               <span>{answerArray[i as keyof typeof i] === questionArray[1]?.answer[i]?.name ? "○" : "×"}</span>

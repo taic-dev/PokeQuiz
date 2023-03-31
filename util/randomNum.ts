@@ -1,6 +1,4 @@
-const randomNum = (): number => {
-  let min = 1;
-  let max = 1008;
+const randomNum = (min: number, max: number): number => {
   const i: number = Math.floor(Math.random() * (max + 1 - min)) + min;
   return i;
 }

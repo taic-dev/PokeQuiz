@@ -27,8 +27,6 @@ const QuizNameQuestion = ({
   questionArray,
 }: QuizNameProps) => {
 
-  console.log(questionArray);
-
   const answerBoxChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -71,7 +69,7 @@ const QuizNameQuestion = ({
         </div>
         <div className={styles["quiz-name__right"]}>
           <div className={styles["quiz-name__img"]}>
-            <img src={questionArray[0].desc[num].img} alt="" />
+            <img src={questionArray[0]?.desc[num]?.img} alt="" />
           </div>
         </div>
       </div>
