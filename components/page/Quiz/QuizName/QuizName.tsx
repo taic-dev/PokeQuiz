@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import QuizNameQuestion from "./QuizNameQuestion";
 import QuizNameAnswer from "./QuizNameAnswer";
 import getPokemonBeginner from "@/api/getPokemonBeginner";
-import getPokemonInfo from "@/api/getPokemonInfo";
 
 interface PokemonObj {
   desc?: Array<any> | undefined;

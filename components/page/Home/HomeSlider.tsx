@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from "react";
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 import getPokemonImageRandom from "@/api/getPokemonImageRandom";
@@ -11,12 +12,11 @@ interface Props {
 }
 
 const HomeSlider: FC<Props> = ({ children }) => {
-
-  const imagesArray1 = getPokemonImageRandom(1,649,10);
-  const imagesArray2 = getPokemonImageRandom(1,649,10);
-  const imagesArray3 = getPokemonImageRandom(1,649,10);
-  const imagesArray4 = getPokemonImageRandom(1,649,10);
-  const imagesArray5 = getPokemonImageRandom(1,649,10);
+  const imagesArray1 = getPokemonImageRandom(1, 649, 10);
+  const imagesArray2 = getPokemonImageRandom(1, 649, 10);
+  const imagesArray3 = getPokemonImageRandom(1, 649, 10);
+  const imagesArray4 = getPokemonImageRandom(1, 649, 10);
+  const imagesArray5 = getPokemonImageRandom(1, 649, 10);
 
   return (
     <>
@@ -35,7 +35,9 @@ const HomeSlider: FC<Props> = ({ children }) => {
           {imagesArray1.map((image: string, index: number) => {
             return (
               <SwiperSlide key={index} className={styles["home__swiper-slide"]}>
-                <img src={image} alt="ポケモン画像" />
+                <div className={styles["home__swiper-slide-img"]}>
+                  <Image src={image} alt="ポケモン画像" fill unoptimized />
+                </div>
               </SwiperSlide>
             );
           })}
@@ -53,7 +55,9 @@ const HomeSlider: FC<Props> = ({ children }) => {
           {imagesArray2.map((image: string, index: number) => {
             return (
               <SwiperSlide key={index} className={styles["home__swiper-slide"]}>
-                <img src={image} alt="ポケモン画像" />
+                <div className={styles["home__swiper-slide-img"]}>
+                  <Image src={image} alt="ポケモン画像" fill unoptimized />
+                </div>
               </SwiperSlide>
             );
           })}
@@ -72,7 +76,9 @@ const HomeSlider: FC<Props> = ({ children }) => {
           {imagesArray3.map((image: string, index: number) => {
             return (
               <SwiperSlide key={index} className={styles["home__swiper-slide"]}>
-                <img src={image} alt="ポケモン画像" />
+                <div className={styles["home__swiper-slide-img"]}>
+                  <Image src={image} alt="ポケモン画像" fill unoptimized />
+                </div>
               </SwiperSlide>
             );
           })}
@@ -90,7 +96,9 @@ const HomeSlider: FC<Props> = ({ children }) => {
           {imagesArray4.map((image: string, index: number) => {
             return (
               <SwiperSlide key={index} className={styles["home__swiper-slide"]}>
-                <img src={image} alt="ポケモン画像" />
+                <div className={styles["home__swiper-slide-img"]}>
+                  <Image src={image} alt="ポケモン画像" fill unoptimized />
+                </div>
               </SwiperSlide>
             );
           })}
@@ -109,7 +117,9 @@ const HomeSlider: FC<Props> = ({ children }) => {
           {imagesArray5.map((image: string, index: number) => {
             return (
               <SwiperSlide key={index} className={styles["home__swiper-slide"]}>
-                <img src={image} alt="ポケモン画像" />
+                <div className={styles["home__swiper-slide-img"]}>
+                  <Image src={image} alt="ポケモン画像" fill unoptimized />
+                </div>
               </SwiperSlide>
             );
           })}
