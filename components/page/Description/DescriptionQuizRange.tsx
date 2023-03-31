@@ -10,6 +10,8 @@ import {
 
 interface rangeType {
   generation: number;
+  min: number;
+  max: number;
   checked: boolean;
 }
 
@@ -23,7 +25,12 @@ const DescriptionQuizRange: React.FC<Props> = ({ range, setRange }) => {
     setRange(
       range.map((obj) =>
         obj.generation === Number(e.target.value)
-          ? { generation: obj.generation, checked: e.target.checked }
+          ? {
+              generation: obj.generation,
+              min: obj.min,
+              max: obj.max,
+              checked: e.target.checked,
+            }
           : obj
       )
     );

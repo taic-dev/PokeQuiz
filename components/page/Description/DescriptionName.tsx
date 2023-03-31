@@ -6,24 +6,26 @@ import styles from "./Description.module.scss";
 
 interface rangeType {
   generation: number;
+  min: number;
+  max: number;
   checked: boolean;
 }
 
 const DescriptionName = () => {
   const [range, setRange] = useState<rangeType[]>([
-    { generation: 1, checked: true },
-    { generation: 2, checked: true },
-    { generation: 3, checked: true },
-    { generation: 4, checked: true },
-    { generation: 5, checked: true },
-    { generation: 6, checked: true },
-    { generation: 7, checked: true },
-    { generation: 8, checked: true },
-    { generation: 9, checked: true },
+    { generation: 1, min: 1, max: 151, checked: true },
+    { generation: 2, min: 152, max: 251, checked: true },
+    { generation: 3, min: 252, max: 386, checked: true },
+    { generation: 4, min: 387, max: 493, checked: true },
+    { generation: 5, min: 494, max: 649, checked: true },
+    { generation: 6, min: 650, max: 721, checked: true },
+    { generation: 7, min: 722, max: 809, checked: true },
+    { generation: 8, min: 810, max: 905, checked: true },
+    { generation: 9, min: 906, max: 1008, checked: true },
   ]);
 
   const handleClickGameStartButton = () => {
-    localStorage.setItem(`rangObj`, JSON.stringify(range));
+    localStorage.setItem(`rangeObj`, JSON.stringify(range));
   };
 
   return (
