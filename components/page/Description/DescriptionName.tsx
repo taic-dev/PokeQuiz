@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import DescriptionQuizRange from "./DescriptionQuizRange";
-import Button from "@/components/ui/Button/Button";
-import { Typography } from "@mui/material";
+import { Typography, Button } from "@mui/material";
 import styles from "./Description.module.scss";
 
 interface rangeType {
@@ -23,7 +22,9 @@ const DescriptionName = () => {
     { generation: 9, checked: true },
   ]);
 
-  console.log(range);
+  const handleClickGameStartButton = () => {
+    localStorage.setItem(`rangObj`, JSON.stringify(range));
+  };
 
   return (
     <>
@@ -43,16 +44,14 @@ const DescriptionName = () => {
           <p>※ 回答の文字数は入力に制限があります。</p>
           <DescriptionQuizRange range={range} setRange={setRange} />
           <div className={styles.description__button}>
-            <Link
-              as="../quiz/quiz-mame"
-              href={{ 
-                pathname: "quiz-name",
-                query: { test : range }
-              }}
-              legacyBehavior
+            <Button
+              variant="contained"
+              component={Link}
+              href={`/quiz-name`}
+              onClick={handleClickGameStartButton}
             >
-              ゲームスタート
-            </Link>
+              ▶︎ ゲームスタート
+            </Button>
           </div>
         </div>
         <div className={styles.description__img}>
