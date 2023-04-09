@@ -8,11 +8,7 @@ const QuizName = () => {
   const [num, setNum] = useState<number>(0);
   const [answer, setAnswer] = useState<string>("");
   const [answerArray, setAnswerArray] = useState<string[]>([]);
-  
-  let rangeArray = JSON.parse(typeof window !== 'undefined' && localStorage.getItem("rangeObj") || "{}")
-  
-  if(!rangeArray) return <>...読み込み中</>;
-
+  let rangeArray = JSON.parse(localStorage.getItem("rangeObj") || "{}")  
   rangeArray = rangeArray.filter((v:RangeType)=> v.checked && v);
   const questionArray: Array<PokemonObj> | undefined = getPokemonBeginner(rangeArray);
 
@@ -27,7 +23,10 @@ const QuizName = () => {
       questionArray={questionArray || undefined}
     />
   ) : (
-    <QuizNameAnswer answerArray={answerArray} questionArray={questionArray} />
+    <QuizNameAnswer 
+      answerArray={answerArray}
+      questionArray={questionArray}
+    />
   );
 };
 
