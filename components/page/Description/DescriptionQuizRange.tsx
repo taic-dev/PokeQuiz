@@ -1,4 +1,5 @@
 import React from "react";
+import { DescriptionRangeType } from "@/types";
 import {
   FormGroup,
   FormControlLabel,
@@ -8,16 +9,9 @@ import {
   Checkbox,
 } from "@mui/material";
 
-interface rangeType {
-  generation: number;
-  min: number;
-  max: number;
-  checked: boolean;
-}
-
 interface Props {
-  range: rangeType[];
-  setRange: React.Dispatch<React.SetStateAction<rangeType[]>>;
+  range: DescriptionRangeType[];
+  setRange: React.Dispatch<React.SetStateAction<DescriptionRangeType[]>>;
 }
 
 const DescriptionQuizRange: React.FC<Props> = ({ range, setRange }) => {
