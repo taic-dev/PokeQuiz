@@ -9,7 +9,7 @@ const QuizName = () => {
   const [answer, setAnswer] = useState<string>("");
   const [answerArray, setAnswerArray] = useState<string[]>([]);
   
-  let rangeArray = JSON.parse(localStorage.getItem("rangeObj") || "{}")
+  let rangeArray = JSON.parse(typeof window !== 'undefined' && localStorage.getItem("rangeObj") || "{}")
   rangeArray = rangeArray.filter((v:RangeType)=> v.checked && v);
   const questionArray: Array<PokemonObj> | undefined = getPokemonBeginner(rangeArray);
 

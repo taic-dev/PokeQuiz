@@ -19,7 +19,7 @@ const DescriptionName = () => {
   ]);
 
   const handleClickGameStartButton = () => {
-    localStorage.setItem(`rangeObj`, JSON.stringify(range));
+    typeof window !== 'undefined' && localStorage.setItem(`rangeObj`, JSON.stringify(range));
   };
 
   return (
