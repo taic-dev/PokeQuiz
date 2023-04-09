@@ -3,15 +3,12 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 import getPokemonImageRandom from "@/api/getPokemonImageRandom";
+import { HomeSliderProps } from "@/types";
 import styles from "./Home.module.scss";
 
 SwiperCore.use([Autoplay]);
 
-interface Props {
-  children: ReactNode;
-}
-
-const HomeSlider: FC<Props> = ({ children }) => {
+const HomeSlider: FC<HomeSliderProps> = ({ children }) => {
   const imagesArray1 = getPokemonImageRandom(1, 649, 10);
   const imagesArray2 = getPokemonImageRandom(1, 649, 10);
   const imagesArray3 = getPokemonImageRandom(1, 649, 10);
@@ -124,7 +121,7 @@ const HomeSlider: FC<Props> = ({ children }) => {
             );
           })}
         </Swiper>
-        {children}
+        { children }
       </div>
     </>
   );

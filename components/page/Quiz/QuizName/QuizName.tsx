@@ -2,18 +2,7 @@ import React, { useState, useEffect } from "react";
 import QuizNameQuestion from "./QuizNameQuestion";
 import QuizNameAnswer from "./QuizNameAnswer";
 import getPokemonBeginner from "@/api/getPokemonBeginner";
-
-interface PokemonObj {
-  desc?: Array<any> | undefined;
-  answer?: Array<any> | undefined;
-}
-
-interface rangeType {
-  generation: number;
-  min: number;
-  max: number;
-  checked: boolean;
-}
+import { RangeType, PokemonObj } from "@/types";
 
 const QuizName = () => {
   const [num, setNum] = useState<number>(0);
@@ -21,7 +10,7 @@ const QuizName = () => {
   const [answerArray, setAnswerArray] = useState<string[]>([]);
   
   let rangeArray = JSON.parse(localStorage.getItem("rangeObj") || "{}")
-  rangeArray = rangeArray.filter((v:rangeType)=> v.checked && v);
+  rangeArray = rangeArray.filter((v:RangeType)=> v.checked && v);
   const questionArray: Array<PokemonObj> | undefined = getPokemonBeginner(rangeArray);
 
   return num < 10 ? (
