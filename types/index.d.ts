@@ -1,14 +1,29 @@
 import { ReactNode } from "react";
 
-// Home Type
 export type HomeSliderProps = {
   children: ReactNode;
 }
 
-// Description Type
-export type DescriptionRangeType = {
+export type RangeType = {
   generation: number;
   min: number;
   max: number;
   checked: boolean;
+}
+
+export type PokemonObj = {
+  desc?: Array<any> | undefined;
+  answer?: Array<any> | undefined;
+}
+
+export type PokemonAnswerInfo = {
+  length: number | undefined;
+  genera: string | undefined;
+  flavor: string | undefined;
+  img: string | undefined;
+}
+
+export type QuizNameProps = {
+  answerArray: string[];
+  questionArray?: Array<PokemonObj> | undefined;
 }

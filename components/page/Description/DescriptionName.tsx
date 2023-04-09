@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import DescriptionQuizRange from "./DescriptionQuizRange";
 import { Typography, Button } from "@mui/material";
-import { DescriptionRangeType } from "@/types";
+import { RangeType } from "@/types";
 import styles from "./Description.module.scss";
 
 const DescriptionName = () => {
-  const [range, setRange] = useState<DescriptionRangeType[]>([
+  const [range, setRange] = useState<RangeType[]>([
     { generation: 1, min: 1, max: 151, checked: true },
     { generation: 2, min: 152, max: 251, checked: true },
     { generation: 3, min: 252, max: 386, checked: true },

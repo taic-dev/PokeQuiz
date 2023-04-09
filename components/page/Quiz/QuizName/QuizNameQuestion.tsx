@@ -1,11 +1,7 @@
 import React from "react";
 import { Button, TextField } from "@mui/material";
+import { PokemonObj } from '@/types';
 import styles from "./QuizName.module.scss";
-
-interface PokemonObj {
-  desc?: Array<any> | undefined;
-  answer?: Array<any> | undefined;
-}
 
 interface QuizNameProps {
   num: number;

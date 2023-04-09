@@ -1,5 +1,5 @@
 import React from "react";
-import { DescriptionRangeType } from "@/types";
+import { RangeType } from "@/types";
 import {
   FormGroup,
   FormControlLabel,
@@ -10,8 +10,8 @@ import {
 } from "@mui/material";
 
 interface Props {
-  range: DescriptionRangeType[];
-  setRange: React.Dispatch<React.SetStateAction<DescriptionRangeType[]>>;
+  range: RangeType[];
+  setRange: React.Dispatch<React.SetStateAction<RangeType[]>>;
 }
 
 const DescriptionQuizRange: React.FC<Props> = ({ range, setRange }) => {
