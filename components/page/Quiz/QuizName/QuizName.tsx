@@ -11,7 +11,7 @@ const QuizName = () => {
   
   let rangeArray = JSON.parse(typeof window !== 'undefined' && localStorage.getItem("rangeObj") || "{}")
   
-  if(!rangeArray) return;
+  if(!rangeArray) return <>...読み込み中</>;
 
   rangeArray = rangeArray.filter((v:RangeType)=> v.checked && v);
   const questionArray: Array<PokemonObj> | undefined = getPokemonBeginner(rangeArray);
