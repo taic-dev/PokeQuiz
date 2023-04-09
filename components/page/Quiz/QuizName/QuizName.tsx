@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { store } from "@/store";
 import QuizNameQuestion from "./QuizNameQuestion";
 import QuizNameAnswer from "./QuizNameAnswer";
 import getPokemonBeginner from "@/api/getPokemonBeginner";
@@ -8,7 +9,7 @@ const QuizName = () => {
   const [num, setNum] = useState<number>(0);
   const [answer, setAnswer] = useState<string>("");
   const [answerArray, setAnswerArray] = useState<string[]>([]);
-  let rangeArray = JSON.parse(localStorage.getItem("rangeObj") || "{}")  
+  let rangeArray = store.getState()
   rangeArray = rangeArray.filter((v:RangeType)=> v.checked && v);
   const questionArray: Array<PokemonObj> | undefined = getPokemonBeginner(rangeArray);
 

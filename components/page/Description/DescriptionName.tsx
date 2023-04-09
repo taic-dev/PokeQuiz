@@ -1,25 +1,18 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import { store } from "@/store";
+import { useDispatch } from "react-redux";
 import DescriptionQuizRange from "./DescriptionQuizRange";
 import { Typography, Button } from "@mui/material";
 import { RangeType } from "@/types";
 import styles from "./Description.module.scss";
 
 const DescriptionName = () => {
-  const [range, setRange] = useState<RangeType[]>([
-    { generation: 1, min: 1, max: 151, checked: true },
-    { generation: 2, min: 152, max: 251, checked: true },
-    { generation: 3, min: 252, max: 386, checked: true },
-    { generation: 4, min: 387, max: 493, checked: true },
-    { generation: 5, min: 494, max: 649, checked: true },
-    { generation: 6, min: 650, max: 721, checked: true },
-    { generation: 7, min: 722, max: 809, checked: true },
-    { generation: 8, min: 810, max: 905, checked: true },
-    { generation: 9, min: 906, max: 1008, checked: true },
-  ]);
+  const [range, setRange] = useState<RangeType[]>(store.getState());
+  const dispatch = useDispatch();
 
   const handleClickGameStartButton = () => {
-    typeof window !== 'undefined' && localStorage.setItem(`rangeObj`, JSON.stringify(range));
+    dispatch({ type: "GET_RANGE", range: range })
   };
 
   return (
