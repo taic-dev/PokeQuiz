@@ -1,34 +1,38 @@
-import React from 'react'
+import React from "react";
 import Button from "@/components/ui/Button/Button";
-import { QuizNameProps, PokemonAnswerInfo } from '@/types';
+import { QuizNameProps, PokemonAnswerInfo } from "@/types";
 import styles from "./QuizName.module.scss";
 
 const QuizNameAnswer = ({ answerArray, questionArray }: QuizNameProps) => {
-
   return (
     <div className={styles["quiz-name__wrapper"]}>
       <h1>▶︎ けっかはっぴょう</h1>
       <ul className={styles["quiz-name__list"]}>
-        {questionArray[0]?.desc?.map((v: PokemonAnswerInfo,i: React.Key | number)=>(
-          <li className={styles["quiz-name__item"]} key={i}>
-            <div className={styles["quiz-name__desc"]}>
-              <span>{answerArray[i as keyof typeof i] === questionArray[1]?.answer[i]?.name ? "○" : "×"}</span>
-              <img src={v.img} alt="回答画像" />            
-            </div>
-            <div className={styles["quiz-name__diff"]}>
-              <p>▶︎{answerArray[i as keyof typeof i]}</p>
-              <p>答え：{questionArray[1]?.answer[i]?.name}</p>
-            </div>
-          </li>
-        ))}
+        {questionArray?.[0]?.desc?.map(
+          (v: PokemonAnswerInfo, i: React.Key | number | any) => (
+            <li className={styles["quiz-name__item"]} key={i}>
+              <div className={styles["quiz-name__desc"]}>
+                <span>
+                  {answerArray[i] ===
+                  questionArray?.[1]?.answer?.[i]?.name
+                    ? "○"
+                    : "×"}
+                </span>
+                <img src={v.img} alt="回答画像" />
+              </div>
+              <div className={styles["quiz-name__diff"]}>
+                <p>▶︎{answerArray[i]}</p>
+                <p>答え：{questionArray?.[1]?.answer?.[i]?.name}</p>
+              </div>
+            </li>
+          )
+        )}
       </ul>
       <div className={styles["quiz-name__button"]}>
-        <Button link='/'>
-          TOPへ
-        </Button>
+        <Button link="/">TOPへ</Button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default QuizNameAnswer
+export default QuizNameAnswer;

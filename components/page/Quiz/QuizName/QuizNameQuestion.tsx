@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, TextField } from "@mui/material";
-import { PokemonObj } from '@/types';
+import { PokemonObj } from "@/types";
 import styles from "./QuizName.module.scss";
 
 interface QuizNameProps {
@@ -43,7 +43,9 @@ const QuizNameQuestion = ({
       className={styles["quiz-name__wrapper"]}
     >
       <h1>▶︎ このポケモンのなまえは？</h1>
-      <div className={styles["quiz-name__count"]}><span>{num + 1}/10</span></div>
+      <div className={styles["quiz-name__count"]}>
+        <span>{num + 1}/10</span>
+      </div>
       <div className={styles["quiz-name__box"]}>
         <div className={styles["quiz-name__left}"]}>
           <TextField
@@ -52,20 +54,20 @@ const QuizNameQuestion = ({
             className={styles["quiz-name__name"]}
             label="なまえ"
             variant="standard"
-            inputProps={{ maxLength: questionArray[0]?.desc[num]?.length }}
+            inputProps={{ maxLength: questionArray?.[0]?.desc?.[num]?.length}}
           />
           <div className={styles["quiz-name__detail"]}>
             <h2>▶︎ ヒント</h2>
             <p className={styles["quiz-name__name"]}>
-              答えは <span>{questionArray[0]?.desc[num]?.length}</span> 文字
+              答えは <span>{ questionArray?.[0]?.desc?.[num]?.length}</span> 文字
             </p>
-            <p>{questionArray[0]?.desc[num]?.genera}</p>
-            <p>{questionArray[0]?.desc[num]?.flavor}</p>
+            <p>{questionArray?.[0]?.desc?.[num]?.genera}</p>
+            <p>{questionArray?.[0]?.desc?.[num]?.flavor}</p>
           </div>
         </div>
         <div className={styles["quiz-name__right"]}>
           <div className={styles["quiz-name__img"]}>
-            <img src={questionArray[0]?.desc[num]?.img} alt="" />
+            <img src={questionArray?.[0]?.desc?.[num]?.img} alt="" />
           </div>
         </div>
       </div>
