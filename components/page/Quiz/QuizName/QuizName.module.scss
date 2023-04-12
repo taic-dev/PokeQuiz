@@ -1,14 +1,24 @@
 .quiz-name {
   &__wrapper {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 10% auto 0;
     position: relative;
+    padding: 0 3%;
+
+    @media screen and (max-width: 600px){
+      padding: 10% 3% 0;
+    }
 
     h1 {
       font-size: 32px;
       font-weight: bold;
       font-family: "Famicom";
       margin-bottom: 24px;
+
+      @media screen and (max-width: 500px){
+        margin-top: 20px;
+        font-size: clamp(1.1875rem, -0.2569rem + 7.2222vw, 2rem);
+      }
     }
   }
 
@@ -33,6 +43,18 @@
     align-items: center;
     gap: 50px;
     margin-bottom: 24px;
+
+    > div {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 1000px){
+      gap: 25px;
+    }
+
+    @media screen and (max-width: 500px){
+      flex-direction: column-reverse;
+    }
   }
 
   &__left {
@@ -44,8 +66,20 @@
     font-family: "Famicom";
     width: 80%;
 
+    @media screen and (max-width: 1000px){
+      width: 90%;
+    }
+
+    @media screen and (max-width: 500px){
+      width: 100%;
+    }
+
     input {
       font-size: 24px;
+
+      @media screen and (max-width: 500px){
+
+      }
     }
 
     span {
@@ -75,6 +109,10 @@
 
   &__right {
     width: 50%;
+
+    @media screen and (max-width: 500px){
+      width: 100%;
+    }
   }
 
   &__img {
@@ -84,6 +122,10 @@
     padding: 5%;
     border-radius: 20px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+
+    @media screen and (max-width: 500px){
+      margin: auto;
+    }
 
     img {
       width: 100%;
