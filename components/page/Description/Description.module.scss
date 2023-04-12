@@ -2,11 +2,19 @@
   &__wrapper {
     margin: 10% 8% 0;
 
+    @media screen and (max-width: 1200px){
+      margin: 10% 3% 0;
+    }
+
     h1 {
       font-size: 32px;
       font-weight: bold;
       font-family: "Famicom";
       margin-bottom: 24px;
+
+      @media screen and (max-width: 500px){
+        font-size: clamp(1.25rem, -0.0833rem + 6.6667vw, 2rem);
+      }
     }
 
     h2 {
@@ -14,6 +22,10 @@
       font-weight: bold;
       font-family: "Famicom";
       margin-bottom: 16px;
+
+      @media screen and (max-width: 500px){
+        font-size: clamp(1rem, 0.1111rem + 4.4444vw, 1.5rem);
+      }
     }
   }
 
@@ -22,11 +34,23 @@
     justify-content: space-between;
     align-items: start;
     gap: 20px;
+
+    @media screen and (max-width: 1000px){
+      flex-direction: column-reverse;
+    }
   }
 
   &__text {
     width: 35%;
     margin-bottom: 24px;
+
+    @media screen and (max-width: 1000px){
+      width: 100%;
+    }
+
+    @media screen and (max-width: 500px){
+      font-size: 14px;
+    }
 
     p {
       margin-bottom: 20px;
@@ -41,6 +65,10 @@
   &__img {
     width: 65%;
     border-radius: 10px;
+
+    @media screen and (max-width: 1000px){
+      width: 100%;
+    }
 
     img{
       width: 100%;
