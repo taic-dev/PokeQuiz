@@ -58,7 +58,7 @@ const QuizNameQuestion = ({
           />
           <div className={styles["quiz-name__detail"]}>
             <h2>▶︎ ヒント</h2>
-            <p className={styles["quiz-name__name"]}>
+            <p>
               答えは <span>{ questionArray?.[0]?.desc?.[num]?.length}</span> 文字
             </p>
             <p>{questionArray?.[0]?.desc?.[num]?.genera}</p>
