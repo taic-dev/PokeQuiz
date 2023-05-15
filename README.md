@@ -5,6 +5,8 @@
 # PokeQuiz 〜ポケクイズ〜
 ### https://poke-quiz-psi.vercel.app/
 
+<img width="1440" alt="スクリーンショット 2023-05-15 20 26 39" src="https://github.com/taic-dev/PokeQuiz/assets/52269577/8c5e21f3-614c-4686-8be6-467ae1803d7b">
+
 ## Description
 ポケモンのクイズで遊べるページです。<br>
 なまえのクイズ、タイプのクイズ、しんかのクイズとさまざまなクイズをプレイすることが可能です。<br>
