@@ -2,7 +2,7 @@
 <img width="403" alt="スクリーンショット 2023-05-15 20 22 36" src="https://github.com/taic-dev/PokeQuiz/assets/52269577/beae7980-2a69-42ce-9b34-007c39983858">
 </p>
 
-# PokeQuiz ポケモンクイズ
+# PokeQuiz ~ポケクイズ~
 ### https://poke-quiz-psi.vercel.app/
 
 ## Description
