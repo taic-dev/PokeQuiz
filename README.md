@@ -30,11 +30,12 @@
 4. 最後に答え合わせ
 
 ## How to install & Start-up
-$ git clone git@github.com:taic-dev/PokeQuiz.git
+```$ git clone git@github.com:taic-dev/PokeQuiz.git
 $ cd PokeQuiz/
 $ npm install
 $ npm run build
 $ npm run start
+```
 
 ## Author
 taic-dev
