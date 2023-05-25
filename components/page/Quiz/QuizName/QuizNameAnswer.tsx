@@ -8,7 +8,7 @@ import styles from "./QuizName.module.scss";
 const QuizNameAnswer = ({ answerArray, questionArray }: QuizNameProps) => {
   const dispatch = useDispatch();
   const router = useRouter();
-  
+
   const handleClickReload = () => {
     dispatch({ type: "CLEAR_STATE" })
     router.push("/");
@@ -39,7 +39,7 @@ const QuizNameAnswer = ({ answerArray, questionArray }: QuizNameProps) => {
         )}
       </ul>
       <div className={styles["quiz-name__button"]}>
-        <Button onClick={()=>handleClickReload()}>TOPへ</Button>
+        <Button variant="contained" onClick={()=>handleClickReload()}>TOPへ</Button>
       </div>
     </div>
   );
