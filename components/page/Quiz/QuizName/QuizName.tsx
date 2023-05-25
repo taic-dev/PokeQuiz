@@ -13,6 +13,8 @@ const QuizName = () => {
   rangeArray = rangeArray.filter((v:RangeType)=> v.checked && v);
   const questionArray: Array<PokemonObj> | undefined = getPokemonNameQuestion(rangeArray);
 
+  console.log(rangeArray)
+
   return num < 10 ? (
     <QuizNameQuestion
       num={num}

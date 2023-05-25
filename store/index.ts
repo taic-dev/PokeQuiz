@@ -17,6 +17,8 @@ const reducer = (state = range, action: any) => {
   switch(action.type) {
     case "GET_RANGE":
      return action.range;
+    case "CLEAR_STATE":
+      return range;
     default:
       return state;
   }
