@@ -2,7 +2,7 @@ import useFetch from "@/hooks/useFetch";
 import randomNum from "@/util/randomNum";
 import { RangeType, PokemonObj, PokemonAnswerInfo } from "@/types";
 
-const getPokemonBegginer = (rangeArray: RangeType[]) => {
+const getPokemonNameQuestion = (rangeArray: RangeType[]) => {
 
   let array: PokemonObj[] = [
     { desc:[] },
@@ -52,4 +52,4 @@ const getPokemonBegginer = (rangeArray: RangeType[]) => {
   return array;
 }
 
-export default getPokemonBegginer
+export default getPokemonNameQuestion
