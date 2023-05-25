@@ -6,6 +6,7 @@ import { Typography, Button } from "@mui/material";
 import { RangeType } from "@/types";
 import DescriptionQuizRange from "./DescriptionQuizRange";
 import DescriptionValidation from "./DescriptionValidation";
+import arrayChecked from "@/util/arrayChecked";
 import styles from "./Description.module.scss";
 
 const DescriptionName = () => {
@@ -40,6 +41,7 @@ const DescriptionName = () => {
               component={Link}
               href={`/quiz-name`}
               onClick={handleClickGameStartButton}
+              disabled={!arrayChecked(range)}
             >
               ▶︎ ゲームスタート
             </Button>
