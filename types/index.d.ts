@@ -27,3 +27,4 @@ export type QuizNameProps = {
   answerArray: string[];
   questionArray?: Array<PokemonObj> | undefined;
 }
+

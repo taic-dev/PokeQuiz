@@ -1,9 +1,19 @@
 import React from "react";
-import Button from "@/components/ui/Button/Button";
+import { useRouter } from 'next/router'
+import { useDispatch } from "react-redux";
+import { Button } from "@mui/material";
 import { QuizNameProps, PokemonAnswerInfo } from "@/types";
 import styles from "./QuizName.module.scss";
 
 const QuizNameAnswer = ({ answerArray, questionArray }: QuizNameProps) => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const handleClickReload = () => {
+    dispatch({ type: "CLEAR_STATE" })
+    router.push("/");
+  }
+
   return (
     <div className={styles["quiz-name__wrapper"]}>
       <h1>▶︎ けっかはっぴょう</h1>
@@ -29,7 +39,7 @@ const QuizNameAnswer = ({ answerArray, questionArray }: QuizNameProps) => {
         )}
       </ul>
       <div className={styles["quiz-name__button"]}>
-        <Button link="/">TOPへ</Button>
+        <Button variant="contained" onClick={()=>handleClickReload()}>TOPへ</Button>
       </div>
     </div>
   );
