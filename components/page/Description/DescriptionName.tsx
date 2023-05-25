@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { store } from "@/store";
 import { useDispatch } from "react-redux";
-import DescriptionQuizRange from "./DescriptionQuizRange";
 import { Typography, Button } from "@mui/material";
 import { RangeType } from "@/types";
+import DescriptionQuizRange from "./DescriptionQuizRange";
+import DescriptionValidation from "./DescriptionValidation";
+import arrayChecked from "@/util/arrayChecked";
 import styles from "./Description.module.scss";
 
 const DescriptionName = () => {
@@ -32,12 +34,14 @@ const DescriptionName = () => {
           </ul>
           <p>※ 回答の文字数は入力に制限があります。</p>
           <DescriptionQuizRange range={range} setRange={setRange} />
+          <DescriptionValidation range={range} />
           <div className={styles.description__button}>
             <Button
               variant="contained"
               component={Link}
               href={`/quiz-name`}
               onClick={handleClickGameStartButton}
+              disabled={!arrayChecked(range)}
             >
               ▶︎ ゲームスタート
             </Button>
