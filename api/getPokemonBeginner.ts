@@ -1,32 +1,10 @@
 import useFetch from "@/hooks/useFetch";
 import randomNum from "@/util/randomNum";
+import { RangeType, PokemonObj, PokemonAnswerInfo } from "@/types";
 
-interface Answer {
-  name: string | undefined
-}
+const getPokemonBegginer = (rangeArray: RangeType[]) => {
 
-interface Desc {
-  length: number | undefined;
-  genera: string | undefined;
-  flavor: string | undefined;
-  img: string | undefined;
-}
-
-interface PokemonObj {
-  desc?: Array<any> | undefined;
-  answer?: Array<any> | undefined;
-}
-
-interface rangeType {
-  generation: number;
-  min: number;
-  max: number;
-  checked: boolean;
-}
-
-const getPokemonBegginer = (rangeArray: rangeType[]) => {
-
-  let array: Array<PokemonObj> = [
+  let array: PokemonObj[] = [
     { desc:[] },
     { answer: [] }
   ]
@@ -56,14 +34,14 @@ const getPokemonBegginer = (rangeArray: rangeType[]) => {
       (v: { language: { name: string } }) => v.language.name == "ja"
     );
 
-    const pokemonDesc: Desc = {
+    const pokemonDesc: PokemonAnswerInfo = {
       length: names && names.name.length,
       genera: genera && genera.genus,
       flavor: flavor && flavor.flavor_text.replace(/\s+/g, ""),
       img: image && image
     }
 
-    const pokemonAnswer: Answer = {
+    const pokemonAnswer: { name: string | undefined } = {
       name: names && names.name,
     }
 
