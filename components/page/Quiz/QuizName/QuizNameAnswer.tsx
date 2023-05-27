@@ -1,18 +1,13 @@
-import React from "react";
-import { useRouter } from 'next/router'
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 import { Button } from "@mui/material";
 import { QuizNameProps, PokemonAnswerInfo } from "@/types";
+import { TweetArea } from "@/features/TweetArea/TweetArea";
 import styles from "./QuizName.module.scss";
 
 const QuizNameAnswer = ({ answerArray, questionArray }: QuizNameProps) => {
-  const dispatch = useDispatch();
-  const router = useRouter();
+  const [show, setShow] = useState(false);
 
-  const handleClickReload = () => {
-    dispatch({ type: "CLEAR_STATE" })
-    router.push("/");
-  }
+  const handleClickShow = () => setShow(true);
 
   return (
     <div className={styles["quiz-name__wrapper"]}>
@@ -23,10 +18,7 @@ const QuizNameAnswer = ({ answerArray, questionArray }: QuizNameProps) => {
             <li className={styles["quiz-name__item"]} key={i}>
               <div className={styles["quiz-name__desc"]}>
                 <span>
-                  {answerArray[i] ===
-                  questionArray?.[1]?.answer?.[i]?.name
-                    ? "○"
-                    : "×"}
+                  {answerArray[i] === questionArray?.[1]?.answer?.[i]?.name ? "○" : "×"}
                 </span>
                 <img src={v.img} alt="回答画像" />
               </div>
@@ -38,8 +30,9 @@ const QuizNameAnswer = ({ answerArray, questionArray }: QuizNameProps) => {
           )
         )}
       </ul>
+      <TweetArea answerArray={answerArray} questionArray={questionArray} show={show} setShow={setShow} />
       <div className={styles["quiz-name__button"]}>
-        <Button variant="contained" onClick={()=>handleClickReload()}>TOPへ</Button>
+        <Button variant="contained" onClick={()=>handleClickShow()}>次へ</Button>
       </div>
     </div>
   );

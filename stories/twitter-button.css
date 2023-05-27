@@ -1,0 +1,18 @@
+.twitter-button {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 5px 50px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+
+.twitter-button svg {
+  width: 30px;
+  height: auto;
+}
+
+.twitter-button span {
+  font-size: 14px;
+}
