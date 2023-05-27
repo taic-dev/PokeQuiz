@@ -19,6 +19,9 @@ export const TweetArea = ({ answerArray, questionArray, show, setShow }: TweetAr
     router.push("/");
   }
 
+  const count = arrayDiff(answerArray, questionArray?.[1]?.answer)
+  const url = `https://twitter.com/intent/tweet?text=【めざせポケモンマスター】%0D%0Aポケクイズ10問中...${count}問正解!!%0D%0A%0D%0Ahttps://poke-quiz-psi.vercel.app/%0D%0A%0D%0A&hashtags=PokeQuiz,ポケクイズ,めざせポケモンマスター`;
+
   return (
     <div className={`${styles["tweet-area"]} ${show && styles["tweet-area--hidden"]}`}>
       <div className={styles["tweet-area__box"]}>
@@ -26,11 +29,11 @@ export const TweetArea = ({ answerArray, questionArray, show, setShow }: TweetAr
           <Image src="/img/cross-icon.png" alt="罰アイコン" width={30} height={30} unoptimized />
         </span>
         <div className={styles["tweet-area__box-desc"]}>
-          <h2>10問中<span>{arrayDiff(answerArray, questionArray?.[1]?.answer)}問</span>正解！！</h2>
+          <h2>10問中<span>{count}問</span>正解！！</h2>
           <p>ポケクイズの記録をツイートしよう！！</p>
         </div>
         <div className={styles["tweet-area__box-btn"]}>
-          <TwitterButton url=" https://twitter.com/intent/tweet?hashtags=foo,bar,baz" />
+          <TwitterButton url={url} />
           <Button variant="contained" onClick={()=>handleClickReload()}>TOPへ</Button>
         </div>
       </div>
