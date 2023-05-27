@@ -28,3 +28,9 @@ export type QuizNameProps = {
   questionArray?: Array<PokemonObj> | undefined;
 }
 
+export type TweetAreaProps = {
+  answerArray: string[];
+  questionArray: PokemonObj[] | any
+  show : boolean;
+  setShow: React.Dispatch<React.SetStateAction<boolean>>
+}
