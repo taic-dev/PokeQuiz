@@ -8,13 +8,24 @@ const getPokemonNameQuestion = (rangeArray: RangeType[]) => {
     { desc:[] },
     { answer: [] }
   ]
-
   if(!array[0].desc || !array[1].answer) return;
+  
+  let i: number;
+  let checkRandomArray: number[] = [];
 
   for(let num=0; num<10; num++) {
-    let randamNum = Math.floor(Math.random() * rangeArray.length)
-    let i = randomNum(rangeArray[randamNum].min, rangeArray[randamNum].max);
-    
+    // 配列のkeyをランダムで出す
+    let x = Math.floor(Math.random() * rangeArray.length)
+    // 図鑑Noにかぶりがないか確認
+    while(true) {
+      // 配列のkeyを元に図鑑Noの最小値と最大値を取得
+      i = randomNum(rangeArray[x].min, rangeArray[x].max);
+      if(!checkRandomArray.includes(i)){
+        checkRandomArray.push(i);
+        break;
+      }
+    }
+
     let url: string = `https://pokeapi.co/api/v2/pokemon/${i}/`;
     let response = useFetch(url, {});
     const image = response?.data.sprites.front_default;
