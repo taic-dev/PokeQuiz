@@ -27,9 +27,8 @@ const QuizNameQuestion = ({
   const answerBoxChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const string = kanaFormat(e.target.value);
-    console.log(string)
-    setAnswer(string);
+    // const string = kanaFormat(e.target.value);
+    setAnswer(e.target.value);
   };
 
   const nextButtonClick = (e: React.FormEvent<HTMLFormElement>) => {
