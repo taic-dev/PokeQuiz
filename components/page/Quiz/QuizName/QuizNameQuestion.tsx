@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, TextField } from "@mui/material";
+import { kanaFormat } from "@/util/format";
 import { PokemonObj } from "@/types";
 import styles from "./QuizName.module.scss";
 
@@ -26,7 +27,7 @@ const QuizNameQuestion = ({
   const answerBoxChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setAnswer(e.target.value);
+    setAnswer(kanaFormat(e.target.value));
   };
 
   const nextButtonClick = (e: React.FormEvent<HTMLFormElement>) => {
